@@ -20,19 +20,20 @@ const OtherwiseController=require('./controllers/otherwise');
 
 //const JudgeController=require('./controllers/judge');
 const AdminController=require('./controllers/admin');
-//const ParticipantController=require('./controllers/participant');
+const ParticipantController=require('./controllers/participant');
 const MenuController=require('./controllers/menu');
 
 //const judgeCtrl=new JudgeController();
 const adminCtrl=new AdminController();
-//const participantCtrl=new ParticipantController();
+const participantCtrl=new ParticipantController();
 const menuCtrl=new MenuController();
 
 tg.router.when(new Telegram.TextCommand('/menu','menuCommand'),menuCtrl)
 .when(new Telegram.TextCommand('/add','addCommand'),adminCtrl)
 .when(new Telegram.TextCommand('/get','getCommand'),adminCtrl)
 .when(new Telegram.TextCommand('/delete','deleteCommand'),adminCtrl)
-.when(new Telegram.TextCommand('/enter','enterCommand'),adminCtrl)
+.when(new Telegram.TextCommand('/enterinfo','enterCommand'),adminCtrl)
+.when(new Telegram.TextCommand('/participate','participateCommand'),participantCtrl)
     .otherwise(new OtherwiseController())    
 
 // function exitHandler(exitCode){

@@ -18,17 +18,17 @@ const OtherwiseController=require('./controllers/otherwise');
 // tg.router.when(new Telegram.TextCommand('/ping','pingCommand'),new PingController())
 //     .otherwise(new OtherwiseController())
 
-const JudgeController=require('./controllers/judge');
+//const JudgeController=require('./controllers/judge');
 const AdminController=require('./controllers/admin');
-const ParticipantController=require('./controllers/participant');
+//const ParticipantController=require('./controllers/participant');
 
-const judgeCtrl=new JudgeController();
+//const judgeCtrl=new JudgeController();
 const adminCtrl=new AdminController();
-const participantCtrl=new ParticipantController();
+//const participantCtrl=new ParticipantController();
 
 tg.router.when(new Telegram.TextCommand('/add','addCommand'),adminCtrl)
 .when(new Telegram.TextCommand('/get','getCommand'),adminCtrl)
-.when(new Telegram.TextCommand('/check','checkCommand'),adminCtrl)
+.when(new Telegram.TextCommand('/delete','deleteCommand'),adminCtrl)
     .otherwise(new OtherwiseController())    
 
 // function exitHandler(exitCode){

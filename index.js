@@ -29,6 +29,7 @@ const adminCtrl=new AdminController();
 tg.router.when(new Telegram.TextCommand('/add','addCommand'),adminCtrl)
 .when(new Telegram.TextCommand('/get','getCommand'),adminCtrl)
 .when(new Telegram.TextCommand('/delete','deleteCommand'),adminCtrl)
+.when(new Telegram.TextCommand('/enter','enterCommand'),adminCtrl)
     .otherwise(new OtherwiseController())    
 
 // function exitHandler(exitCode){

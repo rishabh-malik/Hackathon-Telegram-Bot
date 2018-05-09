@@ -48,11 +48,32 @@ class adminController extends Telegram.TelegramBaseController {
         });
     }
 
+    enterHandler($){
+        let info=$.message.text.split(' ').slice(1).join(' ');
+
+        if(!info){
+            return $.sendMessage('Sorry please pass a info.')
+        }
+        //using user session storage to store the hackathon info
+        $.getUserSession('hackathon'+`${index}`)
+        .then(info=>{
+            //if no hackathons yet
+            if(!Array.isArray(hackathons)) $.setUserSession('hackathons',[hackathon]);
+            
+            else $.setUserSession('hackathons',hackathons.concat([hackathon]));
+            
+            console.log(hackathon);
+            $.sendMessage('Added new hackathon!')
+         })
+
+    }
+
     get routes() {
         return {
             'addCommand': 'addHandler',
             'getCommand': 'getHandler',
-            'deleteCommand':'deleteHandler'
+            'deleteCommand':'deleteHandler',
+            'enterCommand':'enterHandler'
         }
     }
     

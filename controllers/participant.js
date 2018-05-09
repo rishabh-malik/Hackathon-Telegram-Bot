@@ -13,6 +13,13 @@ class participantController extends Telegram.TelegramBaseController {
 
         $.waitForRequest
         .then($ => {
+            $.setUserSession('participants'+`${$.message.text}`, `${$.userId}`)
+            .then(() => {
+                return $.getUserSession('participants'+`${$.message.text}`)
+            })
+            .then(data => {
+                console.log(data)
+            })    
         $.sendMessage(`Participated Successfully in hackathon ${$.message.text}!`)
         })
 

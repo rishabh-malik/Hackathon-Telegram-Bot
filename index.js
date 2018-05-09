@@ -3,12 +3,11 @@
 const Telegram= require('telegram-node-bot');
 // PersistentMemoryStorage=require('./adapters/PersistentMemoryStorage'),
 // storage=new PersistentMemoryStorage(
-//     `${__dirname}/data/userStorage.json`,
-//     `${__dirname}/data/chatStorage.json`
+//     `${__dirname}/data/participantStorage.json`
 // );
 
 const tg=new Telegram.Telegram('571321316:AAESH5MDtz2f1fst0vel1SUecPSZRPfgg-k',{
-    workers:1
+    workers:1,
     //storage:storage
 })
 
